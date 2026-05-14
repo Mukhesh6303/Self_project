@@ -12,7 +12,7 @@ import {
   Delete as DeleteIcon,
   DatasetLinked as DatasetIcon
 } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
+
 import FraudCards from '../components/FraudCards';
 import TransactionTable from '../components/TransactionTable';
 import { uploadFiles, getStoredTransactions, clearStoredTransactions } from '../apiClient';
@@ -27,7 +27,6 @@ const Dashboard = () => {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [lastUpload, setLastUpload] = useState(null);
-  const navigate = useNavigate();
 
   // Load saved transactions on component mount
   useEffect(() => {
@@ -46,7 +45,8 @@ const Dashboard = () => {
   };
 
   const handleLogout = () => {
-    navigate('/login');
+    // Logout functionality - clear data if needed
+    console.log('Logged out');
   };
 
   const handleUpload = async () => {
